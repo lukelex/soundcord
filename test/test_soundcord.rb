@@ -12,11 +12,9 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal "Walmir".phonetize, "VLM"
   end
   def test_comparations
-    assert_equal SoundCord.phonetize("Joao"),
-                  SoundCord.phonetize("João")
     assert_equal "Joao".compare_phonetically("João"), true
-  end
-  def test_comparator
+    assert_equal "Helena".compare_phonetically("Elena"), true
+    assert_equal "Walmir".compare_phonetically("Valmir"), true
     assert_equal "Marria".compare_phonetically("Maria"), true
   end
   def test_use_vogals_option
