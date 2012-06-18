@@ -55,7 +55,9 @@ class SoundCord
 
     text.gsub! /rm/, 'sm'
 
-    text.gsub! /(n|rm|gm|md|sm|ao\b)/, 'm'
+    text.gsub! /n/, 'm'
+
+    text.gsub! /(rm|gm|md|sm|ao\b)/, 'm'
 
     text.gsub! /ao\b/, 'm'
 
