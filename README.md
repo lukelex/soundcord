@@ -22,7 +22,7 @@ Words can be phonetically transformed:
 And also, compared:
 
 ```ruby
-"Walmir".compare_phonetically("Valmir") # true
+"Walmir".homophone?("Valmir") # true
 "Marria".compare_phonetically("Maria") # true
 ```
 

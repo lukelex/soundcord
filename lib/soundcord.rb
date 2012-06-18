@@ -6,6 +6,10 @@ class SoundCord
   end
 
   def self.compare term_1, term_2, use_vogals=false
+    homophone? term_1, term_2, use_vogals=false
+  end
+
+  def self.homophone? term_1, term_2, use_vogals=false
     handle_text(term_1, use_vogals) == handle_text(term_2, use_vogals)
   end
 
@@ -99,5 +103,8 @@ class String
   end
   def compare_phonetically compared
     compare_phntc compared
+  end
+  def homophone? compared
+    homophone? self, compared
   end
 end
