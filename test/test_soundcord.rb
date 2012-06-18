@@ -12,18 +12,18 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal "Walmir".phonetize, "VLM"
   end
   def test_simple_comparations
-    assert_equal "Joao".compare_phonetically("João"), true
-    assert_equal "Helena".compare_phonetically("Elena"), true
-    assert_equal "Walmir".compare_phonetically("Valmir"), true
-    assert_equal "Marria".compare_phonetically("Maria"), true
-    assert_equal "Wagner".compare_phonetically("Vagner"), true
-    assert_equal "Mirela".compare_phonetically("Mirella"), true
-    assert_equal "Artur".compare_phonetically("Arthur"), true
-    assert_equal "Diego".compare_phonetically("Dyego"), true
-    assert_equal "Felipe".compare_phonetically("Phelipe"), true
-    assert_equal "Filipe".compare_phonetically("Felipe"), true
-    assert_equal "Phelipe".compare_phonetically("Filipe"), true
-    assert_equal "Philippe".compare_phonetically("Felipe"), true
+    assert_equal "Joao".homophone?("João"), true
+    assert_equal "Helena".homophone?("Elena"), true
+    assert_equal "Walmir".homophone?("Valmir"), true
+    assert_equal "Marria".homophone?("Maria"), true
+    assert_equal "Wagner".homophone?("Vagner"), true
+    assert_equal "Mirela".homophone?("Mirella"), true
+    assert_equal "Artur".homophone?("Arthur"), true
+    assert_equal "Diego".homophone?("Dyego"), true
+    assert_equal "Felipe".homophone?("Phelipe"), true
+    assert_equal "Filipe".homophone?("Felipe"), true
+    assert_equal "Phelipe".homophone?("Filipe"), true
+    assert_equal "Philippe".homophone?("Felipe"), true
   end
   def test_use_vogals_option
     assert_equal "Helena".phonetize(:use_vogals => true), "ELMA"

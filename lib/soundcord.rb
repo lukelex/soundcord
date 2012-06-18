@@ -105,6 +105,6 @@ class String
     compare_phntc compared
   end
   def homophone? compared
-    homophone? self, compared
+    SoundCord.homophone? self, compared
   end
 end
