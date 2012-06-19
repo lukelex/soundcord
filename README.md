@@ -23,8 +23,15 @@ And also, compared:
 
 ```ruby
 "Walmir".homophone?("Valmir") # true
-"Marria".compare_phonetically("Maria") # true
 ```
+
+Array's can be searched for homonyms:
+
+```ruby
+collection = ["leonardo" "lucene" "rodrigo" "luciana" "lussene"]
+collection.homophones "lucene" # ["lucene" "luciana" "lussene"]
+```
+
 
 ##Information
 
@@ -40,8 +47,8 @@ We are already working on supporting these:
 
 ###To do:
 
-* Find in collection;
-* Compare phrases;
+* Support for collection;
+* Support for phrases;
 * Alternate languages.
 
 ##How to contribute
