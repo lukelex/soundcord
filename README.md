@@ -22,7 +22,7 @@ Words can be phonetically transformed:
 And also, compared:
 
 ```ruby
-"Walmir".homophone?("Valmir") # true
+"Walmir".homophone? "Valmir" # true
 ```
 
 Array's can be searched for homonyms:
