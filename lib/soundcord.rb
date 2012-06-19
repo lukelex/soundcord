@@ -93,7 +93,7 @@ class SoundCord
 
   def self.remove_duplicity text
     text.split(//).inject("") do |s,n|
-      s + ((s[s.length-1] == n) ? '' : n )
+      s + ((s[s.length-1..s.length-1] === n) ? '' : n )
     end
   end
 end
