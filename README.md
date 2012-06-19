@@ -28,8 +28,8 @@ And also, compared:
 Array's can be searched for homonyms:
 
 ```ruby
-collection = ["leonardo" "lucene" "rodrigo" "luciana" "lussene"]
-collection.homophones "lucene" # ["lucene" "luciana" "lussene"]
+collection = ["leonardo", "lucene", "rodrigo", "luciana", "lussene"]
+collection.homophones "lucene" # ["lucene", "luciana", "lussene"]
 ```
 
 
