@@ -1,5 +1,83 @@
 # encoding: UTF-8
-# pt-BR translations for Ruby on Rails
+
+# pt-BR list of words and
 "pt-BR":
-  # formatos de data e hora
-  words:
+  unusual_chars:
+    i:
+      - y
+    v:
+      - w
+    k:
+      - q
+  unusual_combinations:
+    b:
+      - br
+      - bl
+    f:
+      - ph
+    g:
+      - gr
+      - mg
+      - ng
+      - rg
+      - gl
+    j:
+      - ge
+      - gi
+      - rj
+      - mj
+      - nj
+    s:
+      - ce
+      - ci
+      - ch
+      - cs
+    t:
+      - ct
+    k:
+      - ca
+      - co
+      - cu
+      - ck
+      - c
+    l:
+      - lh
+    sm:
+      - rm
+    m:
+      - rm
+      - gm
+      - md
+      - sm
+    n:
+      - nh
+    p:
+      - pr
+    s:
+      - ç
+      - x
+      - ts
+      - c
+      - z
+      - rs
+    t:
+      - tr
+      - tl
+      - lt
+      - rt
+      - st
+  terminations:
+    - s
+    - z
+    - r
+    - m
+    - n
+    - ao
+  vogals:
+    - a
+    - e
+    - i
+    - o
+    - u
+  undesired:
+    - h
