@@ -4,6 +4,7 @@ require 'yaml'
 require 'soundcord/integrations/string'
 require 'soundcord/integrations/array'
 require 'algorithm'
+require 'config'
 
 class SoundCord
   def self.phonetize text, options = { :use_vogals => false }
