@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-require 'yaml'
 require 'soundcord/integrations/string'
 require 'soundcord/integrations/array'
 require 'algorithm'
