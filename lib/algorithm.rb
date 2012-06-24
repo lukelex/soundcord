@@ -2,7 +2,7 @@
 
 class SoundCord
   private
-  def self.handle_text text, options = { :use_vogals => false }
+  def self.handle_text text, options = { :use_vowels => false }
     load_language
 
     text = text.downcase
@@ -11,7 +11,7 @@ class SoundCord
     text = handle_special_chars text
     text = handle_unusual_combinations text
     text = handle_terminations text
-    text = remove_vogals(text) unless options[:use_vogals]
+    text = remove_vowels(text) unless options[:use_vowels]
     text = remove_undesired_chars text
 
     text.upcase
@@ -36,8 +36,8 @@ class SoundCord
     text.gsub regxp, ''
   end
 
-  def self.remove_vogals text
-    regxp = mount_regxp lang_yml[language]["vogals"]
+  def self.remove_vowels text
+    regxp = mount_regxp lang_yml[language]["vowels"]
     text.gsub regxp, ''
   end
 
