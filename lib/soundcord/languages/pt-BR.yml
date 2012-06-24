@@ -2,7 +2,29 @@
 
 # pt-BR list of words and
 "pt-BR":
-  unusual_chars:
+  special_chars:
+    a:
+      - á
+      - à
+      - â
+      - ã
+    e:
+      - é
+      - è
+      - ê
+    i:
+      - í
+      - ì
+      - î
+    o:
+      - ó
+      - ò
+      - ô
+      - õ
+    u:
+      - ú
+      - ù
+      - û
     i:
       - y
     v:

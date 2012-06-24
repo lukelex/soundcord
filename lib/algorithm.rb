@@ -9,7 +9,6 @@ class SoundCord
 
     text = remove_duplicity text
     text = handle_special_chars text
-    text = handle_unusual_chars text
     text = handle_unusual_combinations text
     text = handle_terminations text
     text = remove_vogals(text) unless options[:use_vogals]
@@ -19,15 +18,7 @@ class SoundCord
   end
 
   def self.handle_special_chars text
-    text = text.gsub /(á|à|â|ã)/, 'a'
-    text = text.gsub /(é|è|ê)/, 'e'
-    text = text.gsub /(í|ì|î)/, 'i'
-    text = text.gsub /(ó|ò|ô|õ)/, 'o'
-    text = text.gsub /(ú|ù|û)/, 'u'
-  end
-
-  def self.handle_unusual_chars text
-    lang_yml[language]["unusual_chars"].each do |k,v|
+    lang_yml[language]["special_chars"].each do |k,v|
       text = simple_replace text, k, v
     end
     text
