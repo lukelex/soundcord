@@ -63,7 +63,7 @@ class SoundCord
 
   def self.simple_replace text, k, v
     regxp = mount_regxp v
-    text = text.gsub regxp, k
+    text.gsub regxp, k
   end
 
   def self.mount_regxp sentence, options = { :termination => false }

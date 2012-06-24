@@ -24,6 +24,7 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal true, "Filipe".homophone?("Felipe")
     assert_equal true, "Phelipe".homophone?("Filipe")
     assert_equal true, "Philippe".homophone?("Felipe")
+    assert_equal true, "Luçia".homophone?("lucia")
   end
   def test_use_vogals_option
     assert_equal "ELEMA", "Helena".phonetize(:use_vogals => true)
