@@ -2,6 +2,8 @@
 
 A phonetic algorithm to make comparisons by phonetically similar terms easier.
 
+A phonetic algorithm matches two different words with similar pronunciation to the same code, which allows phonetic similarity based word set comparison and indexing.
+
 [![Build Status](https://secure.travis-ci.org/lukasalexandre/soundcord.png)](http://travis-ci.org/lukasalexandre/soundcord)
 
 ##Installation

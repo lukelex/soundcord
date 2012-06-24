@@ -3,9 +3,9 @@ Gem::Specification.new do |s|
   s.author = 'Lukas Alexandre'
   s.email = 'lukeskytm@gmail.com'
   s.homepage = 'https://github.com/lukasalexandre/soundcord'
-  s.version = "0.1.1"
+  s.version = "0.2.0"
   s.date = Date.today
-  s.summary = %q{A phonetic algorithm implementation}
+  s.summary = %q{A phonetic algorithm for indexing of words by their pronunciation.}
   s.description = "A phonetic algorithm to make comparison by phonetically similar terms easier."
   s.files = Dir["{lib/**/*.rb,README.rdoc,test/**/*.rb,Rakefile,*.gemspec}"]
   s.require_paths = ["lib"]
