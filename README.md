@@ -11,7 +11,7 @@ Often it is quite difficult to find atypical name (or surname) in your records, 
 
 In this case, the use of phonetic algorithms (especially in combination with fuzzy matching algorithms) can significantly simplify the problem.
 
-[![Build Status](https://secure.travis-ci.org/lukasalexandre/soundcord.png)](http://travis-ci.org/lukasalexandre/soundcord)
+[![Build Status](https://secure.travis-ci.org/lukasalexandre/soundcord.png)](http://travis-ci.org/lukasalexandre/soundcord) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/lukasalexandre/soundcord)
 
 ##Installation
 Install it through terminal:
