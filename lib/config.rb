@@ -8,7 +8,7 @@ class SoundCord
 
   def self.load_language lang = DEFAULT_LANGUAGE
     @language = lang
-    @lang_yml = YAML::load_file(LANGUAGES_DIRECTORY + "#{lang}.yml")
+    @lang_yml ||= YAML::load_file(LANGUAGES_DIRECTORY + "#{lang}.yml")
   end
 
   def self.language
@@ -16,6 +16,10 @@ class SoundCord
   end
 
   private
+  def self.language= value
+    @language = value
+    @lang_yml = nil
+  end
   def self.lang_yml
     @lang_yml
   end
