@@ -2,75 +2,46 @@
 
 class SoundCord
   private
-  def self.handle_text text, options = { :use_vowels => false }
+  def self.process_text text, options = { :use_vowels => false }
     load_language
 
     text = text.downcase
 
-    text = remove_duplicity text
-    text = handle_special_chars text
-    text = handle_unusual_combinations text
-    text = handle_terminations text
-    text = remove_vowels(text) unless options[:use_vowels]
-    text = remove_undesired_chars text
+    lang_yml[language].each do |k,v|
+      k.each do |k,v|
+        text = process_group text, k, v, options
+      end
+    end
 
     text.upcase
   end
 
-  def self.handle_special_chars text
-    work lang_yml[language]["special_chars"], text
-  end
-
-  def self.handle_unusual_combinations text
-    work lang_yml[language]["unusual_combinations"], text
-  end
-
-  def self.handle_initiations text
-    work lang_yml[language]["initiations"], text
-  end
-
-  def self.handle_terminations text
-    regxp = mount_regxp lang_yml[language]["terminations"], :termination => true
-    text.gsub regxp, ''
-  end
-
-  def self.remove_vowels text
-    regxp = mount_regxp lang_yml[language]["vowels"]
-    text.gsub regxp, ''
-  end
-
-  def self.remove_undesired_chars text
-    regxp = mount_regxp lang_yml[language]["undesired"]
-    text.gsub regxp, ''
-  end
-
-  def self.remove_duplicity text
+  def self.remove_duplicity text, options
     text.split(//).inject("") do |s,n|
       s + ((s[s.length-1..s.length-1] === n) ? '' : n )
     end
   end
 
-  def self.work groups, text
-    if groups
-      groups.each do |k,v|
-        text = simple_replace text, k, v
-      end
+  def self.process_group text, key, values, options
+    if values
+      return simple_replace text, key, values
+    else
+      return simple_replace text, '', key
     end
-    text
   end
 
-  def self.simple_replace text, k, v
-    regxp = mount_regxp v
-    text.gsub regxp, k
+  def self.simple_replace text, key, values, options
+    regxp = mount_regxp values, options
+    text.gsub regxp, key
   end
 
-  def self.mount_regxp sentence, options = { :termination => false, :initiations => false }
+  def self.mount_regxp sentence, options = { :terminations => false, :initiations => false }
     regxp = "/"
     regxp += "^" if options[:initiations]
     regxp += "("
     regxp += sentence.join("|")
     regxp += ")"
-    regxp += "\\b" if options[:termination]
+    regxp += "\\b" if options[:terminations]
     regxp += "/"
     eval(regxp)
   end

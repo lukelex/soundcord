@@ -7,7 +7,7 @@ require 'config'
 
 class SoundCord
   def self.phonetize text, options = { :use_vowels => false }
-    handle_text(text, options)
+    process_text(text, options)
   end
 
   def self.compare term_1, term_2, options = { :use_vowels => false }
