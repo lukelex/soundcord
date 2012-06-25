@@ -18,17 +18,15 @@ class SoundCord
   end
 
   def self.handle_special_chars text
-    lang_yml[language]["special_chars"].each do |k,v|
-      text = simple_replace text, k, v
-    end
-    text
+    work lang_yml[language]["special_chars"], text
   end
 
   def self.handle_unusual_combinations text
-    lang_yml[language]["unusual_combinations"].each do |k,v|
-      text = simple_replace text, k, v
-    end
-    text
+    work lang_yml[language]["unusual_combinations"], text
+  end
+
+  def self.handle_initiations text
+    work lang_yml[language]["initiations"], text
   end
 
   def self.handle_terminations text
@@ -52,14 +50,26 @@ class SoundCord
     end
   end
 
+  def self.work groups, text
+    if groups
+      groups.each do |k,v|
+        text = simple_replace text, k, v
+      end
+    end
+    text
+  end
+
   def self.simple_replace text, k, v
     regxp = mount_regxp v
     text.gsub regxp, k
   end
 
-  def self.mount_regxp sentence, options = { :termination => false }
-    regxp = sentence.join("|")
-    regxp = "/(" + regxp + ")"
+  def self.mount_regxp sentence, options = { :termination => false, :initiations => false }
+    regxp = "/"
+    regxp += "^" if options[:initiations]
+    regxp += "("
+    regxp += sentence.join("|")
+    regxp += ")"
     regxp += "\\b" if options[:termination]
     regxp += "/"
     eval(regxp)
