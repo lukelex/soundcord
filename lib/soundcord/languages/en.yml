@@ -1,0 +1,45 @@
+# encoding: UTF-8
+
+# pt-BR list of words and
+"en":
+  special_chars:
+    k:
+      - c
+      - q
+    s:
+      - z
+    f:
+      - v
+    t:
+      - d
+  unusual_combinations:
+    0:
+      - th
+    x:
+      - ch
+      - sh
+      - tch
+    f:
+      - ph
+  initiation:
+    e:
+      - ae
+    r:
+      - wr
+    s:
+      - x
+    w:
+      - wh
+    n:
+      - gn
+      - kn
+      - pn
+  terminations:
+    mb:
+      - m
+  middle:
+    sk:
+      - sch
+  vowels:
+
+  undesired:
