@@ -8,7 +8,7 @@ class SoundCord
 
   def self.load_language lang = DEFAULT_LANGUAGE
     @language = lang
-    @lang_yml = YAML::load_file(LANGUAGES_DIRECTORY + "#{lang}.yml")
+    @lang_yml = YAML::load_file(LANGUAGES_DIRECTORY + "#{lang}.yml")[language]
     @options  = { :use_vowels => false }
   end
 

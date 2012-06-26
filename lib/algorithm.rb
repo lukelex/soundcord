@@ -7,19 +7,18 @@ class SoundCord
 
     text = text.downcase
 
-    lang_yml[language].each do |key, values|
-      case key
-      when "terminations"
+    lang_yml.each do |key, values|
+      if key.include? "terminations"
         text = process_group text, values, :terminations => true
-      when "initiations"
+      elsif key.include? "initiations"
         text = process_group text, values, :initiations => true
       else
         text = process_group text, values, options
       end
     end
 
-    text = remove_duplicity text, :duplicate_exceptions => (lang_yml[language]["duplicate_exceptions"] ?
-                                                            lang_yml[language]["duplicate_exceptions"] :
+    text = remove_duplicity text, :duplicate_exceptions => (lang_yml["duplicate_exceptions"] ?
+                                                            lang_yml["duplicate_exceptions"] :
                                                             [])
 
     text.upcase
@@ -33,7 +32,7 @@ class SoundCord
     end
   end
 
-  def self.process_group text, group, options = {}
+  def self.process_group text, group, options
     group.each do |key, values|
       if values
         text = simple_replace text, key, values, options

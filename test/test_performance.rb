@@ -6,12 +6,12 @@ require 'soundcord'
 
 class SoundCordTest < Test::Unit::TestCase
   def test_with_100_words
-    list_of_random_word = []
+    list_of_random_words = []
     100.times do
-      list_of_random_word << (0...8).map{65.+(rand(25)).chr}.join
+      list_of_random_words << (0...8).map{65.+(rand(25)).chr}.join
     end
     time = Benchmark.measure do
-      list_of_random_word.each { |i| i.phonetize }
+      list_of_random_words.each { |i| i.phonetize }
     end
     assert_block do
       time.real < 0.5
