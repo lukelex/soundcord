@@ -14,7 +14,7 @@ class SoundCordTest < Test::Unit::TestCase
       list_of_random_words.each { |i| i.phonetize }
     end
     assert_block do
-      time.real < 0.6
+      time.real < 0.5
     end
   end
 end
