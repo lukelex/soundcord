@@ -2,14 +2,14 @@ class String
   # Returns the phonetic version of the object string
   # Params:
   # +use_vowels+:: enables the vowel comparison feature (if avaiable)
-  def phonetize options = { :use_vowels => false }
-    SoundCord.phonetize self, options
+  def phonetize
+    SoundCord.phonetize self
   end
 
   # Returns the phonetic version of the passed string
   # Params:
   # +use_vowels+:: enables the vowel comparison feature (if avaiable)
-  def self.phonetize value, options = { :use_vowels => false }
+  def self.phonetize value
     value.phonetize
   end
 
