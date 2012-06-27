@@ -41,7 +41,6 @@ collection = ["leonardo", "lucene", "rodrigo", "luciana", "lussene"]
 collection.homophones "lucene" # ["lucene", "luciana", "lussene"]
 ```
 
-
 ##Information
 
 ###Language support
@@ -51,7 +50,7 @@ SoundCord was idealized to support a wide range of languages. Currently, we are 
 
 We are already working on supporting these:
 
-* English;
+* English; [80%]
 * Spanish.
 
 ###To do:
