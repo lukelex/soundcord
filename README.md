@@ -2,9 +2,9 @@
 
 [![Build Status](https://secure.travis-ci.org/lukasalexandre/soundcord.png)](http://travis-ci.org/lukasalexandre/soundcord) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/lukasalexandre/soundcord)
 
-A phonetic algorithm to make comparisons by phonetically similar terms easier.
+Make comparisons of phonetically similar terms easier.
 
-A phonetic algorithm matches two different words with similar pronunciation to the same code, which allows phonetic similarity based word set comparison and indexing.
+SoundCord matches two different words with similar pronunciation to the same code, which allows phonetic similarity based word set comparison and indexing.
 
 Often it is quite difficult to find atypical name (or surname) in your records, for example:
 
@@ -53,8 +53,7 @@ We are already working on supporting these:
 * English; [80%]
 * Spanish.
 
-###To do:
-
+###To do
 * Support for collection;
 * Support for phrases;
 * Alternate languages. [DONE]
@@ -65,7 +64,6 @@ Please ensure that you provide appropriate test coverage and ensure the document
 Please be clean, keep your commits atomic and with the smallest possible logical change. This will increase the likelihood of your submission to be used.
 
 ###Bug reports
-
 If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug.
 
 https://github.com/lukasalexandre/soundcord/issues
