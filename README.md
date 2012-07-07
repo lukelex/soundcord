@@ -11,7 +11,7 @@ Often it is quite difficult to find atypical name (or surname) in your records, 
 — Hey, John, look for Adolf Schwarzenegger.
 — Adolf Shwardseneger? There is no such person!
 
-In this case, the use of phonetic algorithms (especially in combination with fuzzy matching algorithms) can significantly simplify the problem.
+In this case, the use of SoundCord (especially in combination with fuzzy matching algorithms) can significantly simplify the problem.
 
 ##Installation
 Install it through terminal:
