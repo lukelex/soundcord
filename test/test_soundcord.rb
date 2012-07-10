@@ -51,42 +51,42 @@ class SoundCordTest < Test::Unit::TestCase
   def test_initiations_en
     SoundCord.load_language 'en'
 
-    assert_equal "ERIAL", "aerial".phonetize
-    assert_equal "RAP", "wrap".phonetize
-    assert_equal "SENO", "xeno".phonetize
-    assert_equal "WATEFER", "whatever".phonetize
-    assert_equal "NOME", "gnome".phonetize
-    assert_equal "NIFE", "knife".phonetize
-    assert_equal "NEUMONIK", "pneumonic".phonetize
+    assert_equal "RL", "aerial".phonetize
+    assert_equal "RP", "wrap".phonetize
+    assert_equal "SN", "xeno".phonetize
+    assert_equal "WTFR", "whatever".phonetize
+    assert_equal "NM", "gnome".phonetize
+    assert_equal "NF", "knife".phonetize
+    assert_equal "NMNK", "pneumonic".phonetize
   end
 
   def test_unusual_combinations_en
     SoundCord.load_language 'en'
 
-    assert_equal "0EATER", "theater".phonetize
-    assert_equal "TOUX", "touch".phonetize
-    assert_equal "XEL", "shell".phonetize
-    assert_equal "KRUX", "crutch".phonetize
-    assert_equal "FASE", "phase".phonetize
+    assert_equal "0TR", "theater".phonetize
+    assert_equal "TX", "touch".phonetize
+    assert_equal "XL", "shell".phonetize
+    assert_equal "KRX", "crutch".phonetize
+    assert_equal "FS", "phase".phonetize
   end
 
   def test_terminations_en
     SoundCord.load_language 'en'
 
-    assert_equal "LAM", "lamb".phonetize
+    assert_equal "LM", "lmb".phonetize
   end
 
   def test_middle_en
     SoundCord.load_language 'en'
 
     # couldn't remember a better word with SCH in the middle
-    assert_equal "PORSKE", "porsche".phonetize
+    assert_equal "PRSK", "porsche".phonetize
   end
 
   def test_duplicate_exceptions_en
     SoundCord.load_language 'en'
 
-    assert_equal "BEGGAR", "beggar".phonetize
+    assert_equal "BGGR", "beggar".phonetize
   end
 
   def test_special_chars_en
