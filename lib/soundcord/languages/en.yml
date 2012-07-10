@@ -30,8 +30,8 @@
       - tch
     f:
       - ph
-  duplicate_exceptions:
-    - g
+    k:
+      - gg
   follow_ups:
     x:
       c:
@@ -66,6 +66,8 @@
       - v
     t:
       - d
+  duplicate_exceptions:
+    - g
   vowels:
     - a
     - e

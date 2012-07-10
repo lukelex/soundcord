@@ -68,6 +68,7 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal "XL", "shell".phonetize
     assert_equal "KRX", "crutch".phonetize
     assert_equal "FS", "phase".phonetize
+    assert_equal "BKR", "beggar".phonetize
   end
 
   def test_terminations_en
@@ -86,7 +87,7 @@ class SoundCordTest < Test::Unit::TestCase
   def test_duplicate_exceptions_en
     SoundCord.load_language 'en'
 
-    assert_equal "BGGR", "beggar".phonetize
+    assert_equal "GKLS", "goggles".phonetize
   end
 
   def test_special_chars_en
