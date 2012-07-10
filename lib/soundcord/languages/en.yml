@@ -15,6 +15,12 @@
       - gn
       - kn
       - pn
+  terminations:
+    m:
+      - mb
+  middle:
+    sk:
+      - sch
   unusual_combinations:
     0:
       - th
@@ -24,12 +30,6 @@
       - tch
     f:
       - ph
-  terminations:
-    m:
-      - mb
-  middle:
-    sk:
-      - sch
   duplicate_exceptions:
     - g
   follow_ups:

@@ -79,7 +79,8 @@ class SoundCordTest < Test::Unit::TestCase
   def test_middle_en
     SoundCord.load_language 'en'
 
-    assert_equal "", "".phonetize
+    # couldn't remember a better word with SCH in the middle
+    assert_equal "PORSKE", "porsche".phonetize
   end
 
   def test_duplicate_exceptions_en

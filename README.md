@@ -50,7 +50,7 @@ SoundCord was idealized to support a wide range of languages. Currently, we are 
 
 We are already working on supporting these:
 
-* English; [80%]
+* English; [90%]
 * Spanish.
 
 ###To do
