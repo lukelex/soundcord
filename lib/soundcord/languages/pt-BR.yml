@@ -2,7 +2,7 @@
 
 # pt-BR list of words and
 "pt-BR":
-  0-special_chars:
+  special_chars:
     a:
       - á
       - à
@@ -33,7 +33,7 @@
       - q
     s:
       - ç
-  1-unusual_combinations:
+  unusual_combinations:
     b:
       - br
       - bl
@@ -86,18 +86,18 @@
       - lt
       - rt
       - st
-  2-terminations:
+  terminations:
     - s
     - z
     - r
     - m
     - n
     - ao
-  3-vowels:
+  vowels:
     - a
     - e
     - i
     - o
     - u
-  4-undesired:
+  undesired:
     - h

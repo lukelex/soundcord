@@ -5,7 +5,10 @@ require 'test/unit'
 require 'soundcord'
 
 class SoundCordTest < Test::Unit::TestCase
-  def test_with_100_words
+  # pt-BR
+  def test_with_100_words_pt_br
+    SoundCord.load_language 'pt-BR'
+
     list_of_random_words = []
     100.times do
       list_of_random_words << (0...8).map{65.+(rand(25)).chr}.join

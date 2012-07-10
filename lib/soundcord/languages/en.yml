@@ -2,25 +2,6 @@
 
 # pt-BR list of words and
 "en":
-  special_chars:
-    k:
-      - c
-      - q
-    s:
-      - z
-    f:
-      - v
-    t:
-      - d
-  unusual_combinations:
-    0:
-      - th
-    x:
-      - ch
-      - sh
-      - tch
-    f:
-      - ph
   initiations:
     e:
       - ae
@@ -34,14 +15,54 @@
       - gn
       - kn
       - pn
+  unusual_combinations:
+    0:
+      - th
+    x:
+      - ch
+      - sh
+      - tch
+    f:
+      - ph
   terminations:
-    mb:
-      - m
+    m:
+      - mb
   middle:
     sk:
       - sch
-  vowels:
-
-  undesired:
   duplicate_exceptions:
     - g
+  follow_ups:
+    x:
+      c:
+        - ia
+      s:
+        - ia
+        - io
+      t:
+        - ia
+        - io
+    s:
+      sc:
+        - i
+        - e
+        - y
+      c:
+        - i
+        - e
+        - y
+    j:
+      dg:
+        - i
+        - e
+        - y
+  special_chars:
+    k:
+      - c
+      - q
+    s:
+      - z
+    f:
+      - v
+    t:
+      - d
