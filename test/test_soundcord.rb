@@ -48,14 +48,16 @@ class SoundCordTest < Test::Unit::TestCase
   end
 
   # en
-  def test_special_chars_en
+  def test_initiations_en
     SoundCord.load_language 'en'
 
-    assert_equal true, "Qeyla".homophone?("keyla")
-    assert_equal true, "Courtiney".homophone?("kourtiney")
-    assert_equal true, "Quartz".homophone?("kuarts")
-    assert_equal true, "falue".homophone?("value")
-    assert_equal true, "data".homophone?("tada")
+    assert_equal "ERIAL", "aerial".phonetize
+    assert_equal "RAP", "wrap".phonetize
+    assert_equal "SENO", "xeno".phonetize
+    assert_equal "WATEFER", "whatever".phonetize
+    assert_equal "NOME", "gnome".phonetize
+    assert_equal "NIFE", "knife".phonetize
+    assert_equal "NEUMONIK", "pneumonic".phonetize
   end
 
   def test_unusual_combinations_en
@@ -66,5 +68,33 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal "XEL", "shell".phonetize
     assert_equal "KRUX", "crutch".phonetize
     assert_equal "FASE", "phase".phonetize
+  end
+
+  def test_terminations_en
+    SoundCord.load_language 'en'
+
+    assert_equal "LAM", "lamb".phonetize
+  end
+
+  def test_middle_en
+    SoundCord.load_language 'en'
+
+    assert_equal "", "".phonetize
+  end
+
+  def test_duplicate_exceptions_en
+    SoundCord.load_language 'en'
+
+    assert_equal "BEGGAR", "beggar".phonetize
+  end
+
+  def test_special_chars_en
+    SoundCord.load_language 'en'
+
+    assert_equal true, "Qeyla".homophone?("keyla")
+    assert_equal true, "Courtiney".homophone?("kourtiney")
+    assert_equal true, "Quartz".homophone?("kuarts")
+    assert_equal true, "falue".homophone?("value")
+    assert_equal true, "data".homophone?("tada")
   end
 end

@@ -14,7 +14,7 @@ class SoundCord
         text = process_group text, values, :initiations => true
       elsif key == "follow_ups"
         text = process_follow_ups text, values
-      else
+      elsif !key.include? "duplicate"
         text = process_group text, values, options
       end
     end
