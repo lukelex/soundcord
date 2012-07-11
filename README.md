@@ -18,6 +18,15 @@ Install it through terminal:
 
 `gem install soundcord`
 
+Or, if you want to get the latest, you can get master from the main SoundCord repository:
+
+gem "soundcord", :git => "git@github.com:lukasalexandre/soundcord.git"
+
+If you`are trying to use features that don't seem to be in the latest released gem, but are mentioned in the README, then you probably need to specify the master branch if you want to use them. This README is probably ahead of the latest released version, if you're reading it on GitHub.
+
+###Rails integration
+To easily integrate SoundCord with rails, please visit: http://lukasalexandre.github.com/soundcord_rails
+
 ##Usage
 Words can be phonetically transformed:
 
