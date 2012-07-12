@@ -52,8 +52,8 @@ class SoundCord
   def self.process_follow_ups text, group, options = {}
     group.each do |key, prefixes|
       prefixes.each do |prefix, sufixes|
-        regxp = mount_follow_up_regxp prefix, sufixes
-        text = text.gsub regxp, key
+        regexp = mount_follow_up_regexp prefix, sufixes
+        text = text.gsub regexp, key
       end
     end
     return text
@@ -62,10 +62,10 @@ class SoundCord
   def self.process_second_followed text, group, options = {}
     group.each do |key, prefixes|
       prefixes.each do |prefix, sufixes|
-        regxp = mount_second_followed_by_regxp prefix, sufixes
-        text =~ regxp
+        regexp = mount_second_followed_by_regexp prefix, sufixes
+        text =~ regexp
         replacing = ($1 ? $1 : '') + key
-        text = text.gsub regxp, replacing
+        text = text.gsub regexp, replacing
       end
     end
     return text
@@ -73,58 +73,58 @@ class SoundCord
 
   def process_vowels_proonunciation_insignificance text, group
     group.each do |key, value|
-      regxp = mount_vowels_proonunciation_insignificance_regxp value
-      text =~ regxp
-      text = text.gsub regxp, $1
+      regexp = mount_vowels_proonunciation_insignificance_regexp value
+      text =~ regexp
+      text = text.gsub regexp, $1
     end
     return text
   end
 
-  def self.process_followed_by_consonant_regxp text, group
+  def self.process_followed_by_consonant_regexp text, group
     group.each do |key, value|
-      regxp = mount_followed_by_consonant_regxp value
-      text = text.gsub regxp, ''
+      regexp = mount_followed_by_consonant_regexp value
+      text = text.gsub regexp, ''
     end
     return text
   end
 
   def self.simple_replace text, key, values, options
-    regxp = mount_regxp values, options
-    text.gsub regxp, key.to_s
+    regexp = mount_regexp values, options
+    text.gsub regexp, key.to_s
   end
 
-  def self.mount_regxp sentence, options = { :terminations => false, :initiations => false }
-    regxp = "/"
-    regxp += "^" if options[:initiations]
-    regxp += "("
-    regxp += sentence.kind_of?(Array) ? sentence.join("|") : sentence
-    regxp += ")"
-    regxp += "\\b" if options[:terminations]
-    regxp += "/"
-    eval(regxp)
+  def self.mount_regexp sentence, options = { :terminations => false, :initiations => false }
+    regexp = "/"
+    regexp += "^" if options[:initiations]
+    regexp += "("
+    regexp += sentence.kind_of?(Array) ? sentence.join("|") : sentence
+    regexp += ")"
+    regexp += "\\b" if options[:terminations]
+    regexp += "/"
+    eval(regexp)
   end
 
-  def self.mount_follow_up_regxp prefix, sufix, options = {}
-    regxp = options[:not_eval] ? "" : "/"
-    regxp += prefix
-    regxp += "(?="
-    regxp += "("
-    regxp += sufix.kind_of?(Array) ? sufix.join("|") : sufix
-    regxp += "))"
-    regxp += "/" unless options[:not_eval]
-    options[:not_eval] ? regxp : eval(regxp)
+  def self.mount_follow_up_regexp prefix, sufix, options = {}
+    regexp = options[:not_eval] ? "" : "/"
+    regexp += prefix
+    regexp += "(?="
+    regexp += "("
+    regexp += sufix.kind_of?(Array) ? sufix.join("|") : sufix
+    regexp += "))"
+    regexp += "/" unless options[:not_eval]
+    options[:not_eval] ? regexp : eval(regexp)
   end
 
-  def self.mount_second_followed_by_regxp char, group
-    regxp = "/" + not_first(char) + mount_follow_up_regxp(char, group, :not_eval => true) + "/"
-    eval(regxp)
+  def self.mount_second_followed_by_regexp char, group
+    regexp = "/" + not_first(char) + mount_follow_up_regexp(char, group, :not_eval => true) + "/"
+    eval(regexp)
   end
 
-  def self.mount_vowels_proonunciation_insignificance_regxp char
+  def self.mount_vowels_proonunciation_insignificance_regexp char
     eval "/([aeiou])#{char}(?=\b|[^aeiou])/"
   end
 
-  def self.mount_followed_by_consonant_regxp char
+  def self.mount_followed_by_consonant_regexp char
     eval "[#{char}](?![aeiou])"
   end
 
