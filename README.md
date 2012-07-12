@@ -20,7 +20,7 @@ Install it through terminal:
 
 Or, if you want to get the latest, you can get master from the main SoundCord repository:
 
-gem "soundcord", :git => "git@github.com:lukasalexandre/soundcord.git"
+`gem "soundcord", :git => "git@github.com:lukasalexandre/soundcord.git"`
 
 If you`are trying to use features that don't seem to be in the latest released gem, but are mentioned in the README, then you probably need to specify the master branch if you want to use them. This README is probably ahead of the latest released version, if you're reading it on GitHub.
 
