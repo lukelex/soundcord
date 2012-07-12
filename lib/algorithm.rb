@@ -13,7 +13,11 @@ class SoundCord
       elsif key == "initiations"
         text = process_group text, values, :initiations => true
       elsif key == "follow_ups"
-        text = process_follow_ups text, values
+        text = process_follow_ups text, values, options
+      elsif key == "second_followed"
+        text = process_second_followed text, values, options
+      elsif key == "vowels_proonunciation_insignificance"
+        text = process_vowels_proonunciation_insignificance text, values, options
       elsif !key.include? "duplicate"
         text = process_group text, values, options
       end
@@ -45,12 +49,41 @@ class SoundCord
     return text
   end
 
-  def self.process_follow_ups text, group
+  def self.process_follow_ups text, group, options = {}
     group.each do |key, prefixes|
       prefixes.each do |prefix, sufixes|
         regxp = mount_follow_up_regxp prefix, sufixes
         text = text.gsub regxp, key
       end
+    end
+    return text
+  end
+
+  def self.process_second_followed text, group, options = {}
+    group.each do |key, prefixes|
+      prefixes.each do |prefix, sufixes|
+        regxp = mount_second_followed_by_regxp prefix, sufixes
+        text =~ regxp
+        replacing = ($1 ? $1 : '') + key
+        text = text.gsub regxp, replacing
+      end
+    end
+    return text
+  end
+
+  def process_vowels_proonunciation_insignificance text, group
+    group.each do |key, value|
+      regxp = mount_vowels_proonunciation_insignificance_regxp value
+      text =~ regxp
+      text = text.gsub regxp, $1
+    end
+    return text
+  end
+
+  def self.process_followed_by_consonant_regxp text, group
+    group.each do |key, value|
+      regxp = mount_followed_by_consonant_regxp value
+      text = text.gsub regxp, ''
     end
     return text
   end
@@ -71,14 +104,31 @@ class SoundCord
     eval(regxp)
   end
 
-  def self.mount_follow_up_regxp prefix, sufix
-    regxp = "/"
+  def self.mount_follow_up_regxp prefix, sufix, options = {}
+    regxp = options[:not_eval] ? "" : "/"
     regxp += prefix
     regxp += "(?="
     regxp += "("
     regxp += sufix.kind_of?(Array) ? sufix.join("|") : sufix
     regxp += "))"
-    regxp += "/"
+    regxp += "/" unless options[:not_eval]
+    options[:not_eval] ? regxp : eval(regxp)
+  end
+
+  def self.mount_second_followed_by_regxp char, group
+    regxp = "/" + not_first(char) + mount_follow_up_regxp(char, group, :not_eval => true) + "/"
     eval(regxp)
+  end
+
+  def self.mount_vowels_proonunciation_insignificance_regxp char
+    eval "/([aeiou])#{char}(?=\b|[^aeiou])/"
+  end
+
+  def self.mount_followed_by_consonant_regxp char
+    eval "[#{char}](?![aeiou])"
+  end
+
+  def self.not_first char
+    "([^#{char}]|^)"
   end
 end

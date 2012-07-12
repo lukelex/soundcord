@@ -66,8 +66,19 @@
       - v
     t:
       - d
+  second_followed:
+    j:
+      g:
+        - i
+        - e
+        - y
   duplicate_exceptions:
     - g
+  vowels_pronunciation_insignificance:
+    - h
+  folowed_by_consonant:
+    - w
+    - y
   vowels:
     - a
     - e

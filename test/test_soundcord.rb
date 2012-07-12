@@ -54,7 +54,7 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal "RL", "aerial".phonetize
     assert_equal "RP", "wrap".phonetize
     assert_equal "SN", "xeno".phonetize
-    assert_equal "WTFR", "whatever".phonetize
+    assert_equal "TFR", "whatever".phonetize
     assert_equal "NM", "gnome".phonetize
     assert_equal "NF", "knife".phonetize
     assert_equal "NMNK", "pneumonic".phonetize
@@ -98,5 +98,18 @@ class SoundCordTest < Test::Unit::TestCase
     assert_equal true, "Quartz".homophone?("kuarts")
     assert_equal true, "falue".homophone?("value")
     assert_equal true, "data".homophone?("tada")
+  end
+
+  def test_second_follwed_by_en
+    SoundCord.load_language 'en'
+
+    assert_equal "JM", "ogema".phonetize
+  end
+
+  def test_vowels_pronunciation_insignificance_en
+    SoundCord.load_language 'en'
+
+    assert_equal "MSX", "messiah".phonetize
+    assert_equal "ML", "mehlia".phonetize
   end
 end
