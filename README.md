@@ -50,6 +50,14 @@ collection = ["leonardo", "lucene", "rodrigo", "luciana", "lussene"]
 collection.homophones "lucene" # ["lucene", "luciana", "lussene"]
 ```
 
+##Setting language
+The language, to be used in comparisons, can be defined through the following lines:
+
+```ruby
+SoundCord.load_language "pt-BR"
+SoundCord.load_language "en"
+```
+
 ##Information
 
 ###Language support
