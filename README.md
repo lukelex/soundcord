@@ -46,7 +46,7 @@ And also, compared:
 
 ```ruby
 "Walmir".homophone? "Valmir" # true
-"Courtiney".homophone?("kourtiney") # true
+"Courtiney".homophone? "kourtiney" # true
 ```
 
 Array's can be searched for homonyms:
@@ -54,6 +54,9 @@ Array's can be searched for homonyms:
 ```ruby
 collection = ["leonardo", "lucene", "rodrigo", "luciana", "lussene"]
 collection.homophones "lucene" # ["lucene", "luciana", "lussene"]
+
+collection = ["mail", "male", "main", "Maine", "mane"]
+collection.homophones "main" # ["main", "Maine", "mane"]
 ```
 
 ##Setting language
