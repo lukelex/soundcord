@@ -35,12 +35,18 @@ Words can be phonetically transformed:
 "Maria".phonetize # "MR"
 "Helena".phonetize # "LM"
 "Walmir".phonetize # "VLM"
+
+"gnome".phonetize # "NM"
+"pneumonic".phonetize # "NMNK"
+"theater".phonetize # "0TR"
+"crutch".phonetize # "KRX"
 ```
 
 And also, compared:
 
 ```ruby
 "Walmir".homophone? "Valmir" # true
+"Courtiney".homophone?("kourtiney") # true
 ```
 
 Array's can be searched for homonyms:
@@ -57,6 +63,8 @@ The language, to be used in comparisons, can be defined through the following li
 SoundCord.load_language "pt-BR"
 SoundCord.load_language "en"
 ```
+
+If no language is defined SoundCord will fallback to its default, pt-BR.
 
 ##Information
 
