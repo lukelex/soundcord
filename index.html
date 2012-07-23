@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Soundcord by lukasalexandre</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Soundcord</h1>
+        <h2>A phonetic algorithm to make comparison by phonetically similar terms easier.</h2>
+        <a href="https://github.com/lukasalexandre/soundcord" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>SoundCord</h1>
+
+<p><a href="http://travis-ci.org/lukasalexandre/soundcord"><img src="https://secure.travis-ci.org/lukasalexandre/soundcord.png" alt="Build Status"></a> <a href="https://codeclimate.com/github/lukasalexandre/soundcord"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
+
+<p>Make comparisons of phonetically similar terms easier.</p>
+
+<p>SoundCord matches two different words with similar pronunciation to the same code, which allows phonetic similarity based word set comparison and indexing.</p>
+
+<p>Often it is quite difficult to find atypical name (or surname) in your records, for example:</p>
+
+<p>— Hey, John, look for Adolf Schwarzenegger.
+— Adolf Shwardseneger? There is no such person!</p>
+
+<p>In this case, the use of SoundCord (especially in combination with fuzzy matching algorithms) can significantly simplify the problem.</p>
+
+<h2>Installation</h2>
+
+<p>Install it through terminal:</p>
+
+<p><code>gem install soundcord</code></p>
+
+<p>Or, if you want to get the latest, you can get master from the main SoundCord repository:</p>
+
+<p><code>gem "soundcord", :git =&gt; "git@github.com:lukasalexandre/soundcord.git"</code></p>
+
+<p>If you`are trying to use features that don't seem to be in the latest released gem, but are mentioned in the README, then you probably need to specify the master branch if you want to use them. This README is probably ahead of the latest released version, if you're reading it on GitHub.</p>
+
+<h3>Rails integration</h3>
+
+<p>To easily integrate SoundCord with rails, please visit: <a href="http://lukasalexandre.github.com/soundcord_rails">http://lukasalexandre.github.com/soundcord_rails</a></p>
+
+<h2>Usage</h2>
+
+<p>Words can be phonetically transformed:</p>
+
+<div class="highlight">
+<pre><span class="s2">"João"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "J"</span>
+<span class="s2">"Maria"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "MR"</span>
+<span class="s2">"Helena"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "LM"</span>
+<span class="s2">"Walmir"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "VLM"</span>
+
+<span class="s2">"gnome"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "NM"</span>
+<span class="s2">"pneumonic"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "NMNK"</span>
+<span class="s2">"theater"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "0TR"</span>
+<span class="s2">"crutch"</span><span class="o">.</span><span class="n">phonetize</span> <span class="c1"># "KRX"</span>
+</pre>
+</div>
+
+
+<p>And also, compared:</p>
+
+<div class="highlight">
+<pre><span class="s2">"Walmir"</span><span class="o">.</span><span class="n">homophone?</span> <span class="s2">"Valmir"</span> <span class="c1"># true</span>
+<span class="s2">"Courtiney"</span><span class="o">.</span><span class="n">homophone?</span> <span class="s2">"kourtiney"</span> <span class="c1"># true</span>
+</pre>
+</div>
+
+
+<p>Array's can be searched for homonyms:</p>
+
+<div class="highlight">
+<pre><span class="n">collection</span> <span class="o">=</span> <span class="o">[</span><span class="s2">"leonardo"</span><span class="p">,</span> <span class="s2">"lucene"</span><span class="p">,</span> <span class="s2">"rodrigo"</span><span class="p">,</span> <span class="s2">"luciana"</span><span class="p">,</span> <span class="s2">"lussene"</span><span class="o">]</span>
+<span class="n">collection</span><span class="o">.</span><span class="n">homophones</span> <span class="s2">"lucene"</span> <span class="c1"># ["lucene", "luciana", "lussene"]</span>
+
+<span class="n">collection</span> <span class="o">=</span> <span class="o">[</span><span class="s2">"mail"</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"main"</span><span class="p">,</span> <span class="s2">"Maine"</span><span class="p">,</span> <span class="s2">"mane"</span><span class="o">]</span>
+<span class="n">collection</span><span class="o">.</span><span class="n">homophones</span> <span class="s2">"main"</span> <span class="c1"># ["main", "Maine", "mane"]</span>
+</pre>
+</div>
+
+
+<h2>Setting language</h2>
+
+<p>The language, to be used in comparisons, can be defined through the following lines:</p>
+
+<div class="highlight">
+<pre><span class="no">SoundCord</span><span class="o">.</span><span class="n">load_language</span> <span class="s2">"pt-BR"</span>
+<span class="no">SoundCord</span><span class="o">.</span><span class="n">load_language</span> <span class="s2">"en"</span>
+</pre>
+</div>
+
+
+<p>If no language is defined SoundCord will fallback to its default, pt-BR.</p>
+
+<h2>Information</h2>
+
+<h3>Language support</h3>
+
+<p>SoundCord was idealized to support a wide range of languages. Currently, we are supporting these:</p>
+
+<ul>
+<li>Brazilian Portuguese;</li>
+<li>English.</li>
+</ul><p>We are already working on supporting these:</p>
+
+<ul>
+<li>Spanish.</li>
+</ul><h3>To do</h3>
+
+<ul>
+<li>Support for collection;</li>
+<li>Support for phrases;</li>
+</ul><h2>How to contribute</h2>
+
+<p>Please ensure that you provide appropriate test coverage and ensure the documentation is up-to-date. It is encouraged that you perform changes in a clean topic branch rather than a master and that you create a pull request for them. This will facilitate discussion and revision.</p>
+
+<p>Please be clean, keep your commits atomic and with the smallest possible logical change. This will increase the likelihood of your submission to be used.</p>
+
+<h3>Bug reports</h3>
+
+<p>If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug.</p>
+
+<p><a href="https://github.com/lukasalexandre/soundcord/issues">https://github.com/lukasalexandre/soundcord/issues</a></p>
+
+<h2>License</h2>
+
+<p>Copyright (c) 2012 Lukas Alexandre. <a href="http://www.devinscene.com.br/">http://www.devinscene.com.br/</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to use, copy and modify copies of the Software, subject
+to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/lukasalexandre/soundcord/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/lukasalexandre/soundcord/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/lukasalexandre/soundcord"></a> is maintained by <a href="https://github.com/lukasalexandre">lukasalexandre</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
