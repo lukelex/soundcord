@@ -1,29 +1,32 @@
 # encoding: utf-8
 
+require 'soundcord/integrations/string'
+require 'soundcord/integrations/array'
+
 class SoundCord
-  private
+private
   def self.process_text text
     load_language unless language
 
     text = text.downcase
 
     lang_yml.each do |key, values|
-      if key == "terminations"
+      if key == 'terminations'
         text = process_group text, values, :terminations => true
-      elsif key == "initiations"
+      elsif key == 'initiations'
         text = process_group text, values, :initiations => true
-      elsif key == "follow_ups"
+      elsif key == 'follow_ups'
         text = process_follow_ups text, values, options
-      elsif key == "second_followed"
+      elsif key == 'second_followed'
         text = process_second_followed text, values, options
-      elsif key == "vowels_proonunciation_insignificance"
-        text = process_vowels_proonunciation_insignificance text, values, options
-      elsif !key.include? "duplicate"
+      elsif key == 'vowels_pronunciation_insignificance'
+        text = process_vowels_pronunciation_insignificance text, values, options
+      elsif !key.include? 'duplicate'
         text = process_group text, values, options
       end
     end
 
-    text = remove_duplicity text, :duplicate_exceptions => (lang_yml["duplicate_exceptions"])
+    text = remove_duplicity text, :duplicate_exceptions => (lang_yml['duplicate_exceptions'])
 
     text.upcase
   end
@@ -71,11 +74,11 @@ class SoundCord
     return text
   end
 
-  def process_vowels_proonunciation_insignificance text, group
+  def self.process_vowels_pronunciation_insignificance text, group, options = {}
     group.each do |key, value|
-      regexp = mount_vowels_proonunciation_insignificance_regexp value
+      regexp = mount_vowels_pronunciation_insignificance_regexp key
       text =~ regexp
-      text = text.gsub regexp, $1
+      text = text.gsub regexp, ($1 || '')
     end
     return text
   end
@@ -117,11 +120,11 @@ class SoundCord
 
   def self.mount_second_followed_by_regexp char, group
     regexp = "/" + not_first(char) + mount_follow_up_regexp(char, group, :not_eval => true) + "/"
-    eval(regexp)
+    eval regexp
   end
 
-  def self.mount_vowels_proonunciation_insignificance_regexp char
-    eval "/([aeiou])#{char}(?=\b|[^aeiou])/"
+  def self.mount_vowels_pronunciation_insignificance_regexp char
+    eval "/([aeiou])#{char}(?=\\b|[^aeiou])/"
   end
 
   def self.mount_followed_by_consonant_regexp char
