@@ -1,7 +1,7 @@
 require_relative 'regexable'
 
 class SoundCord::Word < Struct.new(:original, :homophone)
-  include Regexable
+  include SoundCord::Regexable
 
   def to_s
     self.homophone or self.process_text

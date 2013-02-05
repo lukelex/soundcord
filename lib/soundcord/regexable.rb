@@ -1,4 +1,4 @@
-module Regexable
+module SoundCord::Regexable
   def mount_regexp sentence, options = { :terminations => false, :initiations => false }
     regexp = '/'
     regexp += '^' if options[:initiations]
