@@ -5,9 +5,11 @@ require 'soundcord'
 
 module SoundCord
   class PtBrWordTest < Test::Unit::TestCase
-    def test_simple_words_pt_br
+    def setup
       SoundCord.load_language 'pt-BR'
+    end
 
+    def test_simple_words_pt_br
       assert_equal "J", "João".phonetize
       assert_equal "MR", "Maria".phonetize
       assert_equal "LM", "Helena".phonetize
@@ -15,8 +17,6 @@ module SoundCord
       assert_equal "VLM", "Walmir".phonetize
     end
     def test_simple_comparisons_pt_br
-      SoundCord.load_language 'pt-BR'
-
       assert_equal true, "Joao".homophone?("João")
       assert_equal true, "Helena".homophone?("Elena")
       assert_equal true, "Walmir".homophone?("Valmir")
@@ -31,14 +31,10 @@ module SoundCord
       assert_equal true, "Philippe".homophone?("Felipe")
     end
     def test_special_chars_pt_br
-      SoundCord.load_language 'pt-BR'
-
       assert_equal true, "Luçia".homophone?("lucia")
       assert_equal true, "Lúcio".homophone?("lucio")
     end
     def test_find_in_collection_pt_br
-      SoundCord.load_language 'pt-BR'
-
       list = %w( saola paulo saulo ricardo sallo )
       expected = %w( saola saulo sallo )
       assert_equal expected, list.homophones("saulo")

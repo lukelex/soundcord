@@ -4,9 +4,11 @@ require 'test/unit'
 require 'soundcord'
 
 module SoundCord
-  load_language 'en'
-
   class EnWordTest < Test::Unit::TestCase
+    def setup
+      SoundCord.load_language 'en'
+    end
+
     def test_initiations_en
       assert_equal "RL", "aerial".phonetize
       assert_equal "RP", "wrap".phonetize
