@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.author = 'Lukas Alexandre'
   s.email = 'lukasalexandre@me.com'
   s.homepage = 'http://lukelex.github.com/soundcord'
-  s.version = "0.3.0"
+  s.version = "0.4.0"
   s.date = Date.today
   s.summary = %q{A phonetic algorithm for indexing of words by their pronunciation.}
   s.description = %q{"Make comparisons of phonetically similar terms easier."}
