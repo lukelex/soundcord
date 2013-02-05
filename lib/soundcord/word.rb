@@ -37,7 +37,7 @@ protected
   def remove_duplicity!(options)
     options[:duplicate_exceptions] = [] unless options[:duplicate_exceptions]
 
-    self.homophone = self.homophone.split(//).inject("") do |s, n|
+    self.homophone = self.homophone.split(//).inject('') do |s, n|
       last_s_char = s[s.length-1..s.length-1]
       s + ((last_s_char === n and
             !options[:duplicate_exceptions].include?(n)) ? '' : n )

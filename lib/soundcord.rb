@@ -9,7 +9,11 @@ require 'soundcord/word'
 
 module SoundCord
   def self.phonetize text
-    Word.new(text).to_s
+    if text.include? ' '
+      Phase.new(text).to_s
+    else
+      Word.new(text).to_s
+    end
   end
 
   def self.compare term_1, term_2
