@@ -96,7 +96,7 @@ If you discover any bugs, feel free to create an issue on GitHub. Please add as 
 https://github.com/lukelex/soundcord/issues
 
 ##License
-Copyright (c) 2012 Lukas Alexandre. http://www.devinscene.com.br/
+Copyright (c) 2012 Lukas Alexandre. http://codelogic.me/
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
