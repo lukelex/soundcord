@@ -1,6 +1,6 @@
 #SoundCord
 
-[![Build Status](https://secure.travis-ci.org/lukasalexandre/soundcord.png)](http://travis-ci.org/lukasalexandre/soundcord) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/lukasalexandre/soundcord)
+[![Build Status](https://secure.travis-ci.org/lukelex/soundcord.png)](http://travis-ci.org/lukelex/soundcord) [![Code Climate](https://codeclimate.com/github/lukelex/soundcord.png)](https://codeclimate.com/github/lukelex/soundcord)
 
 Make comparisons of phonetically similar terms easier.
 
@@ -20,12 +20,12 @@ Install it through terminal:
 
 Or, if you want to get the latest, you can get master from the main SoundCord repository:
 
-`gem "soundcord", :git => "git@github.com:lukasalexandre/soundcord.git"`
+`gem "soundcord", :git => "git@github.com:lukelex/soundcord.git"`
 
 If you`are trying to use features that don't seem to be in the latest released gem, but are mentioned in the README, then you probably need to specify the master branch if you want to use them. This README is probably ahead of the latest released version, if you're reading it on GitHub.
 
 ###Rails integration
-To easily integrate SoundCord with rails, please visit: http://lukasalexandre.github.com/soundcord_rails
+To easily integrate SoundCord with rails, please visit: http://lukelex.github.com/soundcord_rails
 
 ##Usage
 Words can be phonetically transformed:
@@ -93,7 +93,7 @@ Please be clean, keep your commits atomic and with the smallest possible logical
 ###Bug reports
 If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug.
 
-https://github.com/lukasalexandre/soundcord/issues
+https://github.com/lukelex/soundcord/issues
 
 ##License
 Copyright (c) 2012 Lukas Alexandre. http://www.devinscene.com.br/
