@@ -6,11 +6,12 @@ require 'soundcord/integrations/string'
 require 'soundcord/integrations/array'
 
 require 'soundcord/word'
+require 'soundcord/phrase'
 
 module SoundCord
   def self.phonetize text
     if text.include? ' '
-      Phase.new(text).to_s
+      Phrase.new(text).to_s
     else
       Word.new(text).to_s
     end

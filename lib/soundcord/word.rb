@@ -1,15 +1,14 @@
-require_relative 'regexable'
+require 'soundcord/phonetizable'
 
-class SoundCord::Word < Struct.new(:original, :homophone)
-  include SoundCord::Regexable
+class SoundCord::Word < SoundCord::Phonetizable
 
   def to_s
-    self.homophone or self.process_text
+    self.homophone or self.phonetize
   end
 
 protected
-  def process_text
-    SoundCord.load_language unless SoundCord.language
+  def phonetize
+    super
 
     self.homophone = original.downcase
 
@@ -44,7 +43,7 @@ protected
     end
   end
 
-  def process_group! group, options
+  def process_group!(group, options)
     group.each do |key, values|
       if values
         simple_replace! key, values, options
@@ -54,7 +53,7 @@ protected
     end
   end
 
-  def process_follow_ups! group, options = {}
+  def process_follow_ups!(group, options = {})
     group.each do |key, prefixes|
       prefixes.each do |prefix, sufixes|
         regexp = mount_follow_up_regexp prefix, sufixes
@@ -63,7 +62,7 @@ protected
     end
   end
 
-  def process_second_followed! group, options = {}
+  def process_second_followed!(group, options = {})
     group.each do |key, prefixes|
       prefixes.each do |prefix, sufixes|
         regexp = mount_second_followed_by_regexp prefix, sufixes
@@ -74,7 +73,7 @@ protected
     end
   end
 
-  def process_vowels_pronunciation_insignificance! group, options = {}
+  def process_vowels_pronunciation_insignificance!(group, options = {})
     group.each do |key, value|
       regexp = mount_vowels_pronunciation_insignificance_regexp key
       self.homophone =~ regexp
@@ -82,15 +81,17 @@ protected
     end
   end
 
-  def process_followed_by_consonant_regexp! group
+  def process_followed_by_consonant_regexp!(group)
     group.each do |key, value|
       regexp = mount_followed_by_consonant_regexp value
       self.homophone.gsub! regexp, ''
     end
   end
 
-  def simple_replace! key, values, options
+  def simple_replace!(key, values, options)
     regexp = mount_regexp values, options
+    # p self.homophone
+    # p regexp
     self.homophone.gsub! regexp, key.to_s
   end
 end
