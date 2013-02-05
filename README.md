@@ -81,10 +81,6 @@ We are already working on supporting these:
 
 * Spanish.
 
-###To do
-* Support for collection;
-* Support for phrases;
-
 ##How to contribute
 Please ensure that you provide appropriate test coverage and ensure the documentation is up-to-date. It is encouraged that you perform changes in a clean topic branch rather than a master and that you create a pull request for them. This will facilitate discussion and revision.
 
