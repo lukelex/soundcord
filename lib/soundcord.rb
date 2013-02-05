@@ -1,11 +1,15 @@
 # encoding: utf-8
 
-require 'soundcord/algorithm'
 require 'soundcord/config'
 
-class SoundCord
+require 'soundcord/integrations/string'
+require 'soundcord/integrations/array'
+
+require 'soundcord/word'
+
+module SoundCord
   def self.phonetize text
-    process_text text
+    Word.new(text).to_s
   end
 
   def self.compare term_1, term_2

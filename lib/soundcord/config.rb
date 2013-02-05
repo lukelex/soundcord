@@ -1,6 +1,6 @@
 require 'yaml'
 
-class SoundCord
+module SoundCord
   DEFAULT_LANGUAGE = 'pt-BR'
   LANGUAGES_DIRECTORY = "#{Dir.pwd}/lib/soundcord/languages/"
 
@@ -8,7 +8,7 @@ class SoundCord
     attr_reader :language, :options
   end
 
-  def self.load_language lang = DEFAULT_LANGUAGE
+  def self.load_language(lang = DEFAULT_LANGUAGE)
     @language = lang
     @lang_yml = YAML::load_file(LANGUAGES_DIRECTORY + "#{lang}.yml")[language]
     @options  = { :use_vowels => false }
