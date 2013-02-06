@@ -31,15 +31,15 @@ To easily integrate SoundCord with rails, please visit: http://lukelex.github.co
 Words can be phonetically transformed:
 
 ```ruby
-"João".phonetize # "J"
-"Maria".phonetize # "MR"
-"Helena".phonetize # "LM"
-"Walmir".phonetize # "VLM"
+"João".to_sound # "J"
+"Maria".to_sound # "MR"
+"Helena".to_sound # "LM"
+"Walmir".to_sound # "VLM"
 
-"gnome".phonetize # "NM"
-"pneumonic".phonetize # "NMNK"
-"theater".phonetize # "0TR"
-"crutch".phonetize # "KRX"
+"gnome".to_sound # "NM"
+"pneumonic".to_sound # "NMNK"
+"theater".to_sound # "0TR"
+"crutch".to_sound # "KRX"
 ```
 
 And also, compared:
