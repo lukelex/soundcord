@@ -3,12 +3,12 @@ require 'soundcord/word'
 
 class SoundCord::Phrase < SoundCord::Phonetizable
 
-  def to_s
-    self.homophone or self.phonetize
+  def to_sound
+    self.homophone ||= self.phonetize!
   end
 
 protected
-  def phonetize
+  def phonetize!
     super
 
     self.homophone = phonetized_words.join(' ')
@@ -25,7 +25,7 @@ protected
 
   def phonetized_words
     self.words.map do |word|
-      SoundCord::Word.new(word).to_s
+      SoundCord::Word.new(word).to_sound
     end
   end
 

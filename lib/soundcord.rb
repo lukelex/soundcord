@@ -11,9 +11,9 @@ require 'soundcord/phrase'
 module SoundCord
   def self.phonetize text
     if text.include? ' '
-      Phrase.new(text).to_s
+      Phrase.new(text).to_sound
     else
-      Word.new(text).to_s
+      Word.new(text).to_sound
     end
   end
 

@@ -6,7 +6,7 @@ class SoundCord::Phonetizable < Struct.new(:original, :homophone)
   include SoundCord::Comparable
 
 protected
-  def phonetize
+  def phonetize!
     SoundCord.load_language unless SoundCord.language
   end
 end

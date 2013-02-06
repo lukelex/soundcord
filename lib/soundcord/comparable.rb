@@ -1,9 +1,9 @@
 module SoundCord::Comparable
   def ==(obj)
-    self.to_s == obj.to_s
+    self.to_sound == obj.to_sound
   end
 
   def !=(obj)
-    self.to_s != obj.to_s
+    self.to_sound != obj.to_sound
   end
 end

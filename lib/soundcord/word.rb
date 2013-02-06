@@ -2,12 +2,12 @@ require 'soundcord/phonetizable'
 
 class SoundCord::Word < SoundCord::Phonetizable
 
-  def to_s
-    self.homophone or self.phonetize
+  def to_sound
+    self.homophone ||= self.phonetize!
   end
 
 protected
-  def phonetize
+  def phonetize!
     super
 
     self.homophone = original.downcase
