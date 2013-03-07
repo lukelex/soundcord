@@ -90,8 +90,6 @@ protected
 
   def simple_replace!(key, values, options)
     regexp = mount_regexp values, options
-    # p self.homophone
-    # p regexp
     self.homophone.gsub! regexp, key.to_s
   end
 end
